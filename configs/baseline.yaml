@@ -1,0 +1,15 @@
+model: baseline
+target: investments
+
+data:
+  panel_path: data/processed/panel.parquet
+
+train:
+  start_year: 2002
+  end_year: 2020
+
+test:
+  start_year: 2021
+  end_year: 2024
+
+ma_windows: [3, 5]

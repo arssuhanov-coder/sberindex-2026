@@ -1,0 +1,74 @@
+model: xgboost
+target: investments
+
+data:
+  features_path: data/processed/features_forecast.parquet
+
+train:
+  start_year: 2002
+  end_year: 2020
+
+test:
+  start_year: 2021
+  end_year: 2024
+
+features:
+  - investments_lag1
+  - investments_lag2
+  - investments_lag3
+  - retail_lag1
+  - retail_lag2
+  - retail_lag3
+  - income_lag1
+  - income_lag2
+  - income_lag3
+  - unemployment_lag1
+  - unemployment_lag2
+  - unemployment_lag3
+  - housing_lag1
+  - housing_lag2
+  - housing_lag3
+  - population_lag1_lag1
+  - population_lag1_lag2
+  - population_lag1_lag3
+  - investments_roll_mean_3
+  - investments_roll_mean_5
+  - investments_roll_std_3
+  - investments_log_lag1
+
+hyperparameters_grid:
+  - n_estimators: 200
+    max_depth: 3
+    learning_rate: 0.03
+    subsample: 0.8
+    colsample_bytree: 0.8
+  - n_estimators: 300
+    max_depth: 3
+    learning_rate: 0.03
+    subsample: 0.8
+    colsample_bytree: 0.8
+  - n_estimators: 300
+    max_depth: 4
+    learning_rate: 0.03
+    subsample: 0.8
+    colsample_bytree: 0.8
+  - n_estimators: 300
+    max_depth: 4
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+
+validation:
+  splits:
+    - train_end: 2014
+      validation_start: 2015
+      validation_end: 2016
+    - train_end: 2016
+      validation_start: 2017
+      validation_end: 2018
+    - train_end: 2018
+      validation_start: 2019
+      validation_end: 2019
+    - train_end: 2019
+      validation_start: 2020
+      validation_end: 2020

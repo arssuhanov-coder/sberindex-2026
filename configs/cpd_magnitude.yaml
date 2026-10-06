@@ -1,0 +1,19 @@
+model: cpd_magnitude
+target: investments
+
+data:
+  panel_path: data/processed/panel.parquet
+  consensus_path: reports/cpd_consensus.csv
+  output_path: reports/cpd_candidates.csv
+
+period:
+  start_year: 2002
+  end_year: 2024
+
+min_methods: 2
+window: 3
+
+event_classification:
+  strong_jump_threshold: 3.0
+
+signal_formula: specificity_score * (1 + log1p(local_jump))

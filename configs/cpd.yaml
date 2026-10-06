@@ -1,0 +1,39 @@
+model: cpd
+target: investments
+
+data:
+  panel_path: data/processed/panel.parquet
+
+period:
+  start_year: 2002
+  end_year: 2024
+
+methods:
+  - cusum
+  - pelt
+  - binseg
+
+cusum:
+  threshold: 5.0
+  transform: log1p
+  standardize: true
+
+pelt:
+  model: l2
+  min_size: 2
+  jump: 1
+  penalty_multiplier: 0.7
+  penalty_base: log
+
+binseg:
+  model: l2
+  min_size: 2
+  jump: 1
+  n_bkps: 3
+
+consensus:
+  aggregation: tolerance_match
+  groupby:
+    - region
+  tolerance_years: 1
+  min_methods: 2

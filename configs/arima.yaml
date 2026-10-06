@@ -1,0 +1,42 @@
+model: arima
+target: investments
+
+data:
+  panel_path: data/processed/panel.parquet
+
+train:
+  start_year: 2002
+  end_year: 2020
+
+test:
+  start_year: 2021
+  end_year: 2024
+
+candidate_orders:
+  - [0, 1, 0]
+  - [1, 0, 0]
+  - [1, 1, 0]
+  - [0, 1, 1]
+  - [1, 1, 1]
+  - [2, 1, 0]
+  - [0, 1, 2]
+  - [2, 1, 1]
+
+selection:
+  criterion: MAE
+  tie_breaker: RMSE
+
+validation:
+  splits:
+    - train_end: 2014
+      validation_start: 2015
+      validation_end: 2016
+    - train_end: 2016
+      validation_start: 2017
+      validation_end: 2018
+    - train_end: 2018
+      validation_start: 2019
+      validation_end: 2019
+    - train_end: 2019
+      validation_start: 2020
+      validation_end: 2020

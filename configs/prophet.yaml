@@ -1,0 +1,19 @@
+model: prophet
+target: investments
+
+data:
+  panel_path: data/processed/panel.parquet
+
+train:
+  start_year: 2002
+  end_year: 2020
+
+test:
+  start_year: 2021
+  end_year: 2024
+
+prophet:
+  yearly_seasonality: false
+  weekly_seasonality: false
+  daily_seasonality: false
+  changepoint_prior_scale: 0.05

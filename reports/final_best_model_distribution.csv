@@ -1,0 +1,6 @@
+model,regions
+XGBoost,67
+Prophet,9
+Baseline,5
+Chronos,3
+ARIMA,1

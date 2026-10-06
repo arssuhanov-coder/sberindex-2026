@@ -1,0 +1,51 @@
+# Virtual environments
+venv/
+.venv/
+.venv312/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Model checkpoints (сохраняем только финальные)
+*.pkl
+*.h5
+*.pt
+*.pth
+*.bin
+
+# Кэш foundation-моделей (Chronos ~300 MB)
+.cache/
+models_cache/
+.huggingface/
+
+# Временные файлы
+*.tmp
+*.temp
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

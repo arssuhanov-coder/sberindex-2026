@@ -1,0 +1,7 @@
+CPD QUALITY ASSURANCE
+Duplicate rows: 0
+Invalid years: 0
+Total detections: 577
+Consensus points: 189
+3/3 consensus: 47
+Regions with 3/3: 45

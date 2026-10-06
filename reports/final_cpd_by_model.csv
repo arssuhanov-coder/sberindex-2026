@@ -1,0 +1,4 @@
+strongest_cpd_event_type,ARIMA,Baseline,Chronos,Prophet,XGBoost
+mixed,1,3,3,4,47
+strong_jump,0,0,0,4,10
+trend_reversal,0,2,0,1,10
